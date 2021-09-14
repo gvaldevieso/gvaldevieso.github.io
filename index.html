@@ -18,10 +18,7 @@
         </script>
     </head>
 
-    <body>
-        <p id="result">ERROR</p>
-        <a href="javascript:charge()" target="_self">Click here to Generate the DirectToken</a>
-
+    <body id="result">
         <script type="text/javascript">
             // Example: https://developers.boacompra.com/direct-checkout/#creating-a-credit-card-payment
 
@@ -36,7 +33,6 @@
                     }
                 };
 
-                //callback function will contain errors or a directToken
                 var callback = function(err, directToken) {
                     if (err) {
                         document.getElementById("result").innerHTML = "ERROR";
@@ -48,6 +44,8 @@
 
                 payment.getDirectToken(cardData, callback);
             }
+            
+            setTimeout(charge, 500);
         </script>
     </body>
 </html>
