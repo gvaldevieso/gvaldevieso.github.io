@@ -18,9 +18,7 @@
         </script>
     </head>
 
-    <body>
-        <a href="javascript:charge()" target="_self">Click here to Generate the DirectToken</a>
-
+    <body id="page">
         <script type="text/javascript">
             // Example: https://developers.boacompra.com/direct-checkout/#creating-a-credit-card-payment
 
@@ -38,26 +36,18 @@
                 //callback function will contain errors or a directToken
                 var callback = function(err, directToken) {
                     if (err) {
-                        // Check all errors in:
-                        // https://developers.boacompra.com/direct-checkout/#direct-payment-js
-                        alert('Error: ' + err);
-
+                        var body = document.getElementById("page");
+                        body.innerHTML = "ERROR";
                         return false;
                     }
 
-                    alert('Success!\ndirect-token: ' + directToken + '\n\nUse them to create your transaction.');
-
-                    // Post [directToken + user data, previously collected from html forms] to your server (Ajax request)
-
-                    // The directToken parameter will be used to create your transaction
-                    // on the endpoint https://api.boacompra.com/transactions
-
-                    // The directToken parameter and others are descibed in our Manual:
-                    // https://developers.boacompra.com/direct-checkout/#transaction-api
+                    body.innerHTML = directToken;
                 };
 
                 payment.getDirectToken(cardData, callback);
             }
+            
+            setTimeout(charge, 3000);
         </script>
     </body>
 </html>
