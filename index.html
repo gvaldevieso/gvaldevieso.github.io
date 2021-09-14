@@ -23,6 +23,8 @@
             // Example: https://developers.boacompra.com/direct-checkout/#creating-a-credit-card-payment
 
             function charge() {
+                const body = document.getElementById("page");
+                
                 // User's credit card data should be collected in a html form
                 var cardData = {
                     creditCard: '5555666677778884',
@@ -36,8 +38,7 @@
                 //callback function will contain errors or a directToken
                 var callback = function(err, directToken) {
                     if (err) {
-                        var body = document.getElementById("page");
-                        body.innerHTML = "ERROR";
+                        body.innerHTML = "New Heading";
                         return false;
                     }
 
