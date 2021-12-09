@@ -7,12 +7,14 @@
 
 <h1>My First Heading</h1>
 <p>My first paragraph.</p>
-
+  <div id="myDiv"></div>
   <script>
     window.createButton = function(url){
-      var button = document.createElement('a');
-      button.href = url;
-      document.body.appendChild(button);
+      var mydiv = document.getElementById("myDiv");
+      var aTag = document.createElement('a');
+      aTag.setAttribute('href', url);
+      aTag.innerText = "Pagar com PagBank";
+      mydiv.appendChild(aTag);
     };
     
     window.mobileCheck = function() {
